@@ -1,4 +1,4 @@
-package com.examplesShildt.addRemoveLinkedList;
+package com.examplesShildt.collections.addRemoveLinkedList;
 
 import java.util.LinkedList;
 

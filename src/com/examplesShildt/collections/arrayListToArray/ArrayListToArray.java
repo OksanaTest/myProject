@@ -1,4 +1,4 @@
-package com.examplesShildt.arrayListToArray;
+package com.examplesShildt.collections.arrayListToArray;
 /*There are two methods
 OЬject[] toArray[]
 <Т> Т[] toArray (Т array[])

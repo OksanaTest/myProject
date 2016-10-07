@@ -1,4 +1,4 @@
-package com.examplesShildt.hashSetSimplestExamples;
+package com.examplesShildt.collections.hashSetSimplestExamples;
 
 import java.util.HashSet;
 

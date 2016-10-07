@@ -1,4 +1,4 @@
-package com.examplesShildt.addRemoveArrayList;
+package com.examplesShildt.collections.addRemoveArrayList;
 
 import java.util.ArrayList;
 
