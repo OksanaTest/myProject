@@ -2,6 +2,7 @@ package com.examplesShildt.collections.arrayListToArray;
 /*There are two methods
 OЬject[] toArray[]
 <Т> Т[] toArray (Т array[])
+p. 583
  */
 import java.util.ArrayList;
 
