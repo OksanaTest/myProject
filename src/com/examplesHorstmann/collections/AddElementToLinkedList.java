@@ -18,6 +18,7 @@ public class AddElementToLinkedList {
         list.add("Carl");
         list.add("Bob");
         list.add("Barbara");
+        list.add("Barbara");
         Iterator<String> itr = list.iterator();
         System.out.println("initial LinkedList is: ");
         while (itr.hasNext()) {
@@ -29,7 +30,10 @@ public class AddElementToLinkedList {
         ListIterator<String> listIterator = list.listIterator();
         listIterator.next();
         listIterator.next();
+        //listIterator.set("SET");
         listIterator.add("TEST");
+        System.out.println(listIterator.nextIndex());
+        System.out.println(listIterator.previousIndex());
 
         Iterator<String> itrAgain = list.iterator();
         System.out.println("\n" + "LinkedList after element TEST adding: ");
