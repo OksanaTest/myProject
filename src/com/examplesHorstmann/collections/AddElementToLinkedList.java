@@ -7,13 +7,12 @@ import java.util.ListIterator;
 
 /*
 p.695
+several iterators can be as a reader
+and only one can modify collection to avoid ConcurrentModificationException
  */
-public class ListIteratorAdd {
+public class AddElementToLinkedList {
     public static void main(String[] args) {
-        List<String> list = AddElement();
-        System.out.println("LinkedList after TEST element adding is: " + "\n" + list);
-    }
-    private static List<String> LinkedListCreate (){
+
         List<String> list = new LinkedList<>();
         list.add("Amy");
         list.add("Carl");
@@ -24,17 +23,20 @@ public class ListIteratorAdd {
         while (itr.hasNext()) {
             System.out.println(itr.next());
         }
-        System.out.println("output LinkedList without Iterator usage: ");
+        System.out.println("\n" + "output LinkedList without Iterator usage: ");
         System.out.println(list);
-        return list;
 
-    }
-    private static List<String> AddElement (){
-        List<String> list = LinkedListCreate();
         ListIterator<String> listIterator = list.listIterator();
         listIterator.next();
         listIterator.next();
         listIterator.add("TEST");
-        return list;
+
+        Iterator<String> itrAgain = list.iterator();
+        System.out.println("\n" + "LinkedList after element TEST adding: ");
+        while (itrAgain.hasNext()){
+            System.out.println(itrAgain.next());
+        }
+
     }
 }
+
