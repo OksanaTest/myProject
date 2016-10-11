@@ -1,6 +1,7 @@
 package com.examplesShildt.collections.hashSetSimplestExamples;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class MyHashSet {
 
@@ -11,7 +12,16 @@ public class MyHashSet {
         hs.add("testTEST");
         hs.add("SomeString");
 
-        System.out.println(hs);
+        System.out.println("HashSet " + hs);
+
+        LinkedHashSet<String> lhs = new LinkedHashSet<>();
+        lhs.add("String");
+        lhs.add("TEST");
+        lhs.add("testTEST");
+        lhs.add("SomeString");
+
+        System.out.println("LinkedHashSet " + lhs);
+
     }
 }
 
