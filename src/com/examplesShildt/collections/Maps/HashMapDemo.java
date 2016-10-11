@@ -1,4 +1,4 @@
-package com.examplesShildt.collections.Maps;
+package com.examplesShildt.collections.maps;
 
 import java.util.HashMap;
 import java.util.Map;

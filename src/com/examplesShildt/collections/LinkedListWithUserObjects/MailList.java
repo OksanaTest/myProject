@@ -1,4 +1,4 @@
-package com.examplesShildt.collections.LinkedListWithUserObjects;
+package com.examplesShildt.collections.linkedListWithUserObjects;
 
 import java.util.LinkedList;
 import java.util.Spliterator;
