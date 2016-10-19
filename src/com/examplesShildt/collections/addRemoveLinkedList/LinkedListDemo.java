@@ -2,6 +2,7 @@ package com.examplesShildt.collections.addRemoveLinkedList;
 
 import java.util.LinkedList;
 
+
 public class LinkedListDemo {
     public static void main(String[] args) {
         LinkedList<String> ll = new LinkedList<>();
@@ -38,5 +39,6 @@ public class LinkedListDemo {
         System.out.println("Set new value to elemnt with index 2 " +
                 ll.set(2, ll.get(2) + " someString"));
         System.out.println(ll);
+        //ArrayDeque
     }
 }

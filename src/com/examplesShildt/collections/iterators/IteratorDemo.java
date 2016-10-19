@@ -3,12 +3,13 @@ package com.examplesShildt.collections.iterators;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.Queue;
 
 /*
 p.595
  */
 public class IteratorDemo {
-    public static void main(String[] args) {
+    public static  void main(String[] args) {
         //create array list
         ArrayList<String> al = new ArrayList<>();
         //input elements to the array list
@@ -43,5 +44,6 @@ public class IteratorDemo {
             System.out.print(litr.previous() + "\t");
         }
         System.out.println();
+        //Queue
     }
 }
