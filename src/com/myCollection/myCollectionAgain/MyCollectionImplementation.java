@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
     private Node<E> last;// looks like this field and one more below should be marked as a transient
-    private Node<E> first;
+    private Node<E> first;// if this class will implements Serializable
     private int n;
 
     public MyCollectionImplementation() {
