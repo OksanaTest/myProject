@@ -10,8 +10,10 @@ public class MyCollectionImplementationTests {
             new MyCollectionImplementation<>();
     private MyCollectionImplementation<String> stringMyCollectionImplementation =
             new MyCollectionImplementation<>();
-    private MyCollectionImplementation<Integer> getMyCollectionImplementation =
+    private MyCollectionImplementation<Integer> integerMyCollectionImplementation =
             new MyCollectionImplementation<>();
+    private MyCollectionImplementation<Integer> getMyCollectionImplementation =
+            new MyCollectionImplementation<>(6);
 
     @Test
     public void isEmpty(){
@@ -27,8 +29,10 @@ public class MyCollectionImplementationTests {
 
         for(int i = 0; i < 12; i++){
             getMyCollectionImplementation.add(i);
+            integerMyCollectionImplementation.add(i);
         }
-        assertEquals(10, getMyCollectionImplementation.size());
+        assertEquals(6, getMyCollectionImplementation.size());
+        assertEquals(10, integerMyCollectionImplementation.size());
 
     }
     @Test
@@ -41,9 +45,11 @@ public class MyCollectionImplementationTests {
         assertEquals( "TEST TEST_TEST ", stringMyCollectionImplementation.toString());
 
         for(int i = 0; i < 12; i++){
+            integerMyCollectionImplementation.add(i);
             getMyCollectionImplementation.add(i);
         }
-        assertEquals("2 3 4 5 6 7 8 9 10 11 ", getMyCollectionImplementation.toString());
+        assertEquals("2 3 4 5 6 7 8 9 10 11 ", integerMyCollectionImplementation.toString());
+        assertEquals("6 7 8 9 10 11 ", getMyCollectionImplementation.toString());
     }
 
 
