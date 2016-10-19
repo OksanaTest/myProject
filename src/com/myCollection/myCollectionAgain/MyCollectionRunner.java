@@ -5,7 +5,7 @@ public class MyCollectionRunner {
         MyCollectionImplementation<Integer> myCollectionImplementation =
                 new MyCollectionImplementation<>();
         MyCollectionImplementation<Double> doubleMyCollectionImplementation =
-                new MyCollectionImplementation<>();
+                new MyCollectionImplementation<>(20);
 
         for (int i = 0; i <= 14; i++){
             myCollectionImplementation.add(i);
@@ -21,6 +21,5 @@ public class MyCollectionRunner {
         System.out.println("collection with Double elements size is: " +
                 doubleMyCollectionImplementation.size() + "\n");
         System.out.println("collection with DOUBLE elements is: " + doubleMyCollectionImplementation.toString());
-
     }
 }

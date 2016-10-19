@@ -7,12 +7,22 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
     private Node<E> last;// looks like this field and one more below should be marked as a transient
     private Node<E> first;// if this class will implements Serializable
     private int n;
+    private int capacity;
 
     public MyCollectionImplementation() {
+        this.capacity = 10;
         first = null;
         last = null;
         n = 0;
     }
+
+    public MyCollectionImplementation(int capacity){
+        this.capacity = capacity;
+        first = null;
+        last = null;
+        n = 0;
+    }
+
     @Override
     public boolean isEmpty() {
         return first == null;
@@ -23,7 +33,7 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
     }
     @Override
     public void add(E item) {
-        if (n < 10) {
+        if (n < capacity) {
             Node<E> anlast = last;
             last = new Node<>();
             last.setElement(item);
