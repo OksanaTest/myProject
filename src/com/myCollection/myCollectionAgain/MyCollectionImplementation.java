@@ -16,7 +16,7 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
         n = 0;
     }
 
-    public MyCollectionImplementation(int capacity){
+    public MyCollectionImplementation(int capacity) {
         this.capacity = capacity;
         first = null;
         last = null;
@@ -27,40 +27,57 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
     public boolean isEmpty() {
         return first == null;
     }
+
     @Override
     public int size() {
         return n;
     }
+
     @Override
     public void add(E item) {
-        if (n < capacity) {
-            Node<E> anlast = last;
-            last = new Node<>();
-            last.setElement(item);
-            last.setNext(null);
-            if (isEmpty()) {
-                first = last;}
-            else anlast.setNext(last);
-            n++;
-        } else {
-            first = first.getNext();
-            Node<E> anlast = last;
-            last = new Node<>();
-            last.setElement(item);
-            last.setNext(null);
-            anlast.setNext(last);
+        try {
+            if (n < capacity) {
+                Node<E> anlast = last;
+                last = new Node<>();
+                last.setElement(item);
+                last.setNext(null);
+                if (isEmpty()) {
+                    first = last;
+                } else anlast.setNext(last);
+                n++;
+            } else {
+                first = first.getNext();
+                Node<E> anlast = last;
+                last = new Node<>();
+                last.setElement(item);
+                last.setNext(null);
+                anlast.setNext(last);
+            }
+        } catch (NullPointerException e) {
+            System.err.println("[WARNING]: some collection\'s capacity is zero or negative, " +
+                    "default size 2 was selected");
+            capacity = 2;
         }
     }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        if (!isEmpty())
+        if (!isEmpty()) {
             for (E element : this) {
                 s.append(element + " ");
             }
-            return s.toString();
-
+        } else {
+            try {
+                throw new EmptyCollectionException();
+            } catch (EmptyCollectionException e) {
+                System.err.println("EmptyCollectionException has been caught in the toString() method");
+            }
+            ;
+        }
+        return s.toString();
     }
+
     @Override
     public Iterator<E> iterator() {
         return new MyCollectionIterator<>(first);
@@ -72,18 +89,22 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
         public MyCollectionIterator(Node<E> first) {
             current = first;
         }
+
         @Override
-        public boolean hasNext(){
-            return current != null;}
+        public boolean hasNext() {
+            return current != null;
+        }
 
         @Override
         public E next() {
-            if (!hasNext()) throw new NoSuchElementException();
-            E element = current.getElement();
-            current = current.getNext();
-            return element;
+                if (!hasNext()) {
+                    throw new NoSuchElementException("[ERROR]: hasNext() " +
+                            "RETURN EXCEPTION FOR EMPTY COLLECTION");
+                }
+                E element = current.getElement();
+                current = current.getNext();
+                return element;
         }
     }
-
 }
 
