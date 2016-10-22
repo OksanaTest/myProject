@@ -8,6 +8,7 @@ public class Node<E> {
         return next;
     }
 
+
 //test
     public void setNext(Node<E> next) {
         this.next = next;
