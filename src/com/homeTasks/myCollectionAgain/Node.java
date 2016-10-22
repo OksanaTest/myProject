@@ -1,4 +1,4 @@
-package com.myCollection.myCollectionAgain;
+package com.homeTasks.myCollectionAgain;
 
 public class Node<E> {
     private E element;
@@ -8,8 +8,6 @@ public class Node<E> {
         return next;
     }
 
-
-//test
     public void setNext(Node<E> next) {
         this.next = next;
     }

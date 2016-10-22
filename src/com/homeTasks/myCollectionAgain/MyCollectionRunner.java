@@ -1,6 +1,4 @@
-package com.myCollection.myCollectionAgain;
-
-import java.util.Iterator;
+package com.homeTasks.myCollectionAgain;
 
 public class MyCollectionRunner {
     public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class MyCollectionRunner {
         for (int i = 0; i <= 14; i++){
             myCollectionImplementation.add(i);
         }
-        for (double i = 8.0; i < 8.5; i += 0.5){
+        for (double i = 2.0; i < 8.5; i += 0.5){
             doubleMyCollectionImplementation.add(i);
         }
 

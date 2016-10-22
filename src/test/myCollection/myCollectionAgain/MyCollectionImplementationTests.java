@@ -1,7 +1,7 @@
 package test.myCollection.myCollectionAgain;
 
 
-import com.myCollection.myCollectionAgain.MyCollectionImplementation;
+import com.homeTasks.myCollectionAgain.MyCollectionImplementation;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

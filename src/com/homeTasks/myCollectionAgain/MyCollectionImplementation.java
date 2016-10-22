@@ -1,4 +1,4 @@
-package com.myCollection.myCollectionAgain;
+package com.homeTasks.myCollectionAgain;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

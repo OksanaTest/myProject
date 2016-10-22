@@ -1,4 +1,4 @@
-package com.myCollection.myCollectionAgain;
+package com.homeTasks.myCollectionAgain;
 
 public class EmptyCollectionException extends RuntimeException{
     public EmptyCollectionException(){
