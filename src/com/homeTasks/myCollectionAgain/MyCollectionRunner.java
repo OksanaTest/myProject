@@ -3,14 +3,14 @@ package com.homeTasks.myCollectionAgain;
 public class MyCollectionRunner {
     public static void main(String[] args) {
         MyCollectionImplementation<Integer> myCollectionImplementation =
-                new MyCollectionImplementation<>();
+                new MyCollectionImplementation<>(0);
         MyCollectionImplementation<Double> doubleMyCollectionImplementation =
-                new MyCollectionImplementation<>(-4);
+                new MyCollectionImplementation<>(1);
 
-        for (int i = 0; i <= 14; i++){
+        for (int i = 3; i <= 14; i++){
             myCollectionImplementation.add(i);
         }
-        for (double i = 2.0; i < 8.5; i += 0.5){
+        for (double i = 2.0; i <= 8.5; i += 0.5){
             doubleMyCollectionImplementation.add(i);
         }
 
@@ -22,9 +22,5 @@ public class MyCollectionRunner {
                 doubleMyCollectionImplementation.size() + "\n");
         System.out.println("collection with DOUBLE elements is: " +
                 doubleMyCollectionImplementation.toString());
-            System.out.println("iterator.next() = " +
-                    doubleMyCollectionImplementation.iterator().next());
-
-
     }
 }

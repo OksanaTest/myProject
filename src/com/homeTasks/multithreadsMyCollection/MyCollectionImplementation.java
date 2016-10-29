@@ -1,4 +1,4 @@
-package com.homeTasks.myCollectionAgain;
+package com.homeTasks.multithreadsMyCollection;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
     private Node<E> last;// looks like this field and one more below should be marked as a transient
     private Node<E> first;// if this class will implements Serializable
-    private int n;
+    private volatile int n;
     private int capacity;
 
     public MyCollectionImplementation() {
@@ -25,7 +25,7 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
 
     @Override
     public boolean isEmpty() {
-        return (first == null) ;
+        return first == null;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
     @Override
     public void add(E item) {
         try {
-            if (n < capacity && capacity > 1) {
+            if (n < capacity) {
                 Node<E> anlast = last;
                 last = new Node<>();
                 last.setElement(item);
@@ -68,15 +68,21 @@ public class MyCollectionImplementation<E> implements MyCollectionAgain<E> {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder();
+        StringBuffer s = new StringBuffer();
         if (!isEmpty()) {
             for (E element : this) {
                 s.append(element + " ");
             }
+        } else {
+            try {
+                throw new EmptyCollectionException();
+            } catch (EmptyCollectionException e) {
+                System.err.println("EmptyCollectionException has been caught in the toString() method");
+            }
+            ;
         }
-            return s.toString();
-        }
-
+        return s.toString();
+    }
 
     @Override
     public Iterator<E> iterator() {
