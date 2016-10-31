@@ -15,14 +15,13 @@ public class ThreadForToString implements Runnable {
     };
     @Override
     public void run() {
-           synchronized (myCollectionImplementation){
-                /*
-        этот блок, похоже, лишний для этой задачи,
-        достаточно join() в MyCollectionRunner
-        */
-               System.out.println("collection " + Thread.currentThread().getName() + " elements are: " +
-                       myCollectionImplementation.toString() + "\n");
-           }
+               if (myCollectionImplementation.size() == 0){
+                   System.out.println("collection " + Thread.currentThread().getName() + " elements are: " +
+                           "no any elements in the collection :( ");
+               }else {
+                   System.out.println("collection " + Thread.currentThread().getName() + " elements are: " +
+                           myCollectionImplementation.toString() + "\n");
+               }
     }
 }
 

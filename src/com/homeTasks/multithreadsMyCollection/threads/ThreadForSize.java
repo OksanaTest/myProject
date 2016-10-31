@@ -15,13 +15,7 @@ public class ThreadForSize implements Runnable {
     };
     @Override
     public void run() {
-        synchronized (myCollectionImplementation){
-             /*
-        этот блок, похоже, лишний для этой задачи,
-        достаточно join() в MyCollectionRunner
-        */
             System.out.println("collection " +Thread.currentThread().getName() + " is: " +
                     myCollectionImplementation.size() + "\n" );
         }
-    }
 }

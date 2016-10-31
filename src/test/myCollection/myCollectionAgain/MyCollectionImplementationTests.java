@@ -1,6 +1,8 @@
 package test.myCollection.myCollectionAgain;
 
 
+import com.homeTasks.multithreadsMyCollection.threads.ThreadForAddDouble;
+import com.homeTasks.multithreadsMyCollection.threads.ThreadForAddInteger;
 import com.homeTasks.myCollectionAgain.MyCollectionImplementation;
 import org.junit.Test;
 import static org.junit.Assert.*;
