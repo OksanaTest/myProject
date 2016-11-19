@@ -2,6 +2,9 @@ package com.homeTasks.multithreadsMyCollection;
 
 import com.homeTasks.multithreadsMyCollection.threads.*;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+
 public class MyCollectionRunner {
     public static void main(String[] args) throws InterruptedException{
         final MyCollectionImplementation<Integer> myCollectionImplementation =
@@ -27,6 +30,5 @@ public class MyCollectionRunner {
         new ThreadForToString(myCollectionImplementation, "Integer");
         new ThreadForSize(myCollectionImplementation, "Integer size ");
         new ThreadForToString(doubleMyCollectionImplementation, "Double");
-
     }
 }
