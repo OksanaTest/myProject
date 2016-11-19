@@ -50,7 +50,8 @@
 |            11 |            11 |         6 |
 |            33 |            14 |         6 |
 +---------------+---------------+-----------+
-4)*/ insert into projects values(null, 'Hotwire',''),(null, 'Boeing','create schedules to build planes'),(null, 'Automotive',''),(null, 'RentalCar','');
+4)*/ insert into projects values(null, 'Hotwire',''),(null, 'Boeing','create schedules to build planes'),
+(null, 'Automotive',''),(null, 'RentalCar','');
 /*+------------+--------------+----------------------------------+
 | project_id | project_name | project_description              |
 +------------+--------------+----------------------------------+
@@ -95,7 +96,8 @@
 |                    4 |          2 |          5 |
 |                    3 |          3 |          4 |
 +----------------------+------------+------------+
-8)*/ insert into customer values(null, 'customer1',''),(null, 'customer2',''),(null, 'customer3',''),(null, 'customer4',''),(null,'customer5','');
+8)*/ insert into customer values(null, 'customer1',''),(null, 'customer2',''),(null, 'customer3',''),(null, 'customer4',''),
+(null,'customer5','');
 /*+-------------+---------------+----------------------+
 | customer_id | customer_name | customer_description |
 +-------------+---------------+----------------------+
