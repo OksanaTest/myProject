@@ -1,0 +1,1 @@
+ALTER TABLE developers ADD COLUMN salary DECIMAL(8,2);
