@@ -1,15 +1,15 @@
-/*1)*/ INSERT INTO developers VALUES(NULL,'Jon','G'),(NULL,'Mick','Topn'),
-							(NULL,'Tom','Broun'),(NULL,'Anna','Cher'),
-							(NULL,'Ginna','Mj'),(NULL,'Paul','Vovk'),
-							(NULL,'Tracy','DF'),(NULL,'Mikle','VB'),
-							(NULL,'Don','NBN'),(NULL,'Jimmy','KL'),
-							(NULL,'Brain','LEE'),(NULL,'Taddy','Ps'), 
-							(NULL,'Rose','Tree'),(NULL,'Ariel','Pr'),
-							(NULL,'Glory','Fto'),(NULL,'Matt','Knight'),
-							(NULL,'Sam','Smt'),(NULL,'Jonny','Glre'),
-							(NULL,'Albert','Nsht'),(NULL,'Grant','Dre'),
-							(NULL,'Hue','Kim'),(NULL,'Robert','Amst'),
-							(NULL,'Anna','Main'),(NULL,'Alex','Kos');
+/*1)*/ INSERT INTO developers VALUES(2,'Jon','G'),(3,'Mick','Topn'),
+							(4,'Tom','Broun'),(5,'Anna','Cher'),
+							(6,'Ginna','Mj'),(7,'Paul','Vovk'),
+							(8,'Tracy','DF'),(9,'Mikle','VB'),
+							(10,'Don','NBN'),(11,'Jimmy','KL'),
+							(12,'Brain','LEE'),(13,'Taddy','Ps'),
+							(14,'Rose','Tree'),(15,'Ariel','Pr'),
+							(16,'Glory','Fto'),(17,'Matt','Knight'),
+							(18,'Sam','Smt'),(19,'Jonny','Glre'),
+							(20,'Albert','Nsht'),(21,'Grant','Dre'),
+							(22,'Hue','Kim'),(23,'Robert','Amst'),
+							(24,'Anna','Main'),(25,'Alex','Kos');
 /*+----+----------+-------------+
 | id | dev_name | dev_surname |
 +----+----------+-------------+
@@ -38,9 +38,9 @@
 | 24 | Anna     | Main        |
 | 25 | Alex     | Kos         |
 +----+----------+-------------+
-2)*/ INSERT INTO skills VALUES(NULL, 'Java'),(NULL, 'Ruby'),(NULL, 'C#'),
-							(NULL, 'C++'),(NULL, 'PHP'),(NULL, 'JavaScript'),
-							(NULL, 'Perl');
+2)*/ INSERT INTO skills VALUES(1, 'Java'),(2, 'Ruby'),(4, 'C#'),
+							(5, 'C++'),(6, 'PHP'),(7, 'JavaScript'),
+							(8, 'Perl');
 /*+----+-------------+
 | id | skills_name |
 +----+-------------+
@@ -90,10 +90,10 @@
 |            43 |            24 |         5 |
 |            44 |            25 |         5 |
 +---------------+---------------+-----------+
-4)*/ INSERT INTO projects VALUES(NULL, 'Hotwire',''),
-							(NULL,'Boeing','create schedules to build planes'),
-							(NULL,'Automotive',''),(NULL,'RentalCar',''),
-							(NULL,'Deutsche Bank',''),(NULL,'DHL','');
+4)*/ INSERT INTO projects VALUES(2, 'Hotwire',''),
+							(3,'Boeing','create schedules to build planes'),
+							(4,'Automotive',''),(5,'RentalCar',''),
+							(6,'Deutsche Bank',''),(7,'DHL','');
 /*+------------+---------------+----------------------------------+
 | project_id | project_name  | project_description              |
 +------------+---------------+----------------------------------+
@@ -148,10 +148,10 @@
 |            1 | Luxoft       |                     |
 |            2 | Lohika       |                     |
 |            3 | SBT Systems  |                     |
-+--------------+--------------+---------------------+*/
-7) INSERT INTO companies_projects VALUES(NULL,1,2),(NULL,1,3),
-										(NULL,1,6),(NULL,3,4),
-										(NULL,2,5),(NULL,2,7)
++--------------+--------------+---------------------+
+7)*/ INSERT INTO companies_projects VALUES(5,1,2),(6,1,3),
+										(7,1,6),(3,3,4),
+										(4,2,5),(8,2,7);
 /*+----------------------+------------+------------+
 | companies_project_id | company_id | project_id |
 +----------------------+------------+------------+
@@ -175,7 +175,7 @@
 |           5 | customer5     |                      |
 +-------------+---------------+----------------------+
 9)*/ INSERT INTO customer_projects VALUES(NULL,1,2),(NULL,1,3),
-									   (NULL,4,4),(NULL,5,5);
+									   (NULL,4,4),(NULL,5,5),
 									   (NULL,4,6),(NULL,4,7);
 /*+----------------------+-------------+-------------+
 | customer_projects_id | customer_id | projects_id |

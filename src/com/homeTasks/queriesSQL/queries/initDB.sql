@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS projects(
 	project_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	projects_name VARCHAR(30) NOT NULL UNIQUE, 
 	projects_description VARCHAR(100) DEFAULT NULL
-)
+);
 
 CREATE TABLE IF NOT EXISTS projects_dev (
 	projects_dev_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS projects_dev (
 	UNIQUE (developers_id, projects_id),
 	FOREIGN KEY (developers_id) REFERENCES developers (id) ON UPDATE RESTRICT
 	ON DELETE CASCADE,
-	FOREIGN KEY (projects_id) REFERENCES projects (projects_id) ON UPDATE RESTRICT
+	FOREIGN KEY (projects_id) REFERENCES projects (project_id) ON UPDATE RESTRICT
 	ON DELETE CASCADE
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS companies_projects(
 	companies_projects_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	company_id INT NOT NULL,
 	projects_id INT NOT NULL,
-	UNIQUE (company_id, projects_id);
+	UNIQUE (company_id, projects_id),
 	FOREIGN KEY (company_id) REFERENCES companies (companies_id) ON UPDATE RESTRICT 
 	ON DELETE CASCADE,
 	FOREIGN KEY (projects_id) REFERENCES projects (project_id) ON UPDATE RESTRICT 
