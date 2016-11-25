@@ -73,3 +73,15 @@ CREATE TABLE IF NOT EXISTS customer_projects(
 	FOREIGN KEY (projects_id) REFERENCES projects (project_id) ON UPDATE RESTRICT 
 	ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS companies_projects_customer(
+ id SMALLINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ companies_id INT NOT NULL,
+ project_id INT NOT NULL,
+ customer_id INT NOT NULL,
+ UNIQUE(companies_id, project_id, customer_id),
+ FOREIGN KEY (companies_id) REFERENCES companies (companies_id) ON UPDATE RESTRICT
+ ON DELETE CASCADE,
+ FOREIGN KEY (project_id) REFERENCES projects (project_id) ON UPDATE RESTRICT
+ ON DELETE CASCADE
+ );
