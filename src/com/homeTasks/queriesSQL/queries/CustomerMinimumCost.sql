@@ -1,45 +1,24 @@
 /*
 Найти клиента (customer), который приносит меньше всего прибыли компании (company) для каждой из компаний
 */
-SELECT SUM(cost), company_name, customer_name FROM customer_projects cp
-LEFT JOIN projects p ON cp.projects_id = p.project_id
-LEFT JOIN customer c ON cp.customer_id = c.customer_id
-LEFT JOIN companies_projects copmp ON cp.projects_id = copmp.projects_id
-LEFT JOIN companies ON copmp.company_id = companies.companies_id
-WHERE company_name = 'Luxoft'
-GROUP BY customer_name HAVING sum(cost) <= ALL(SELECT SUM(cost) FROM customer_projects cp
-LEFT JOIN projects p ON cp.projects_id = p.project_id
-LEFT JOIN customer c ON cp.customer_id = c.customer_id
-LEFT JOIN companies_projects copmp ON cp.projects_id = copmp.projects_id
-LEFT JOIN companies ON copmp.company_id = companies.companies_id
-WHERE company_name = 'Luxoft' GROUP BY customer_name)
+SELECT b.ProjectMinCost,b.company_name , t.customer_name FROM(
+SELECT MIN(cost) AS ProjectMinCost, a.* FROM (
+SELECT SUM(cost) AS cost, company_name
+FROM companies_projects_customer cpc
+INNER JOIN customer c ON cpc.customer_id = c.customer_id
+INNER JOIN companies cp ON cpc.companies_id = cp.companies_id
+INNER JOIN projects p ON cpc.project_id = p.project_id
+GROUP BY  company_name, customer_name
+)a GROUP BY a.company_name
+)b
 
-UNION
+INNER JOIN
 
-SELECT SUM(cost), company_name, customer_name FROM customer_projects cp
-LEFT JOIN projects p ON cp.projects_id = p.project_id 
-LEFT JOIN customer c ON cp.customer_id = c.customer_id
-LEFT JOIN companies_projects copmp ON cp.projects_id = copmp.projects_id
-LEFT JOIN companies ON copmp.company_id = companies.companies_id
-WHERE customer_name = 'Lohika'
-GROUP BY customer_name HAVING SUM(cost) <= ALL(SELECT SUM(cost) FROM customer_projects cp
-LEFT JOIN projects p ON cp.projects_id = p.project_id
-LEFT JOIN customer c ON cp.customer_id = c.customer_id
-LEFT JOIN companies_projects copmp ON cp.projects_id = copmp.projects_id
-LEFT JOIN companies ON copmp.company_id = companies.companies_id
-WHERE company_name = 'Lohika' GROUP BY customer_name)
+(SELECT  SUM(cost) AS cost, customer_name, company_name
+FROM companies_projects_customer cpc
+INNER JOIN customer c ON cpc.customer_id = c.customer_id
+INNER JOIN companies cp ON cpc.companies_id = cp.companies_id
+INNER JOIN projects p ON cpc.project_id = p.project_id
+GROUP BY  company_name, customer_name) t
 
-UNION
-
-SELECT SUM(cost), company_name, customer_name FROM customer_projects cp
-LEFT JOIN projects p ON cp.projects_id = p.project_id
-LEFT JOIN customer c ON cp.customer_id = c.customer_id
-LEFT JOIN companies_projects copmp ON cp.projects_id = copmp.projects_id
-LEFT JOIN companies ON copmp.company_id = companies.companies_id
-WHERE customer_name = 'SBT Systems'
-GROUP BY project_name HAVING SUM(cost) <= ALL(SELECT SUM(cost)
-FROM customer_projects cp LEFT JOIN projects p ON cp.projects_id = p.project_id 
-LEFT JOIN customer c ON cp.customer_id = c.customer_id 
-LEFT JOIN companies_projects copmp ON cp.projects_id = copmp.projects_id
-LEFT JOIN companies ON copmp.company_id = companies.companies_id
-WHERE company_name = 'SBT Systems' GROUP BY customer_name);
+ON t.cost = b.ProjectMinCost AND t.company_name = b.company_name;
